@@ -1,4 +1,4 @@
-package com.example.xxxtwice.mapper;
+package com.ruth.stormDemo.mapper;
 
 import org.apache.storm.redis.common.mapper.RedisDataTypeDescription;
 import org.apache.storm.redis.common.mapper.RedisStoreMapper;

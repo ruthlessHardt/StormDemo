@@ -1,19 +1,14 @@
-package com.example.xxxtwice;
+package com.ruth.stormDemo;
 
-import com.example.xxxtwice.bolts.MyBolt;
-import com.example.xxxtwice.mapper.StoreRedisMapper;
-import com.example.xxxtwice.spouts.MyKafkaSpout;
-import com.example.xxxtwice.spouts.MySpout;
+import com.ruth.stormDemo.bolts.MyBolt;
+import com.ruth.stormDemo.mapper.StoreRedisMapper;
+import com.ruth.stormDemo.spouts.MySpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
-import org.apache.storm.kafka.*;
 import org.apache.storm.redis.bolt.RedisStoreBolt;
 import org.apache.storm.redis.common.config.JedisPoolConfig;
 import org.apache.storm.redis.common.mapper.RedisStoreMapper;
-import org.apache.storm.spout.SchemeAsMultiScheme;
 import org.apache.storm.topology.TopologyBuilder;
-
-import java.util.UUID;
 
 /**
  * @Titile :  Test (executing program)
@@ -50,7 +45,7 @@ public class Test {
 
         //Save in redis
         JedisPoolConfig poolConfig = new JedisPoolConfig.Builder()
-                .setHost("127.0.0.1").setPort(6379).build();
+                .setHost("127.0.0.1").setPort(6379).setPassword("123456").build();
         RedisStoreMapper storeMapper = new StoreRedisMapper();
         RedisStoreBolt storeBolt = new RedisStoreBolt(poolConfig, storeMapper);
         tb.setBolt("StoreBolt", storeBolt, 1).shuffleGrouping("LogDataCountBolt");

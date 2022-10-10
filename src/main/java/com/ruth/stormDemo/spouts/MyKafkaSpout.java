@@ -1,4 +1,4 @@
-package com.example.xxxtwice.spouts;
+package com.ruth.stormDemo.spouts;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;

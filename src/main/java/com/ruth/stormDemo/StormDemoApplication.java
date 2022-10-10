@@ -1,4 +1,4 @@
-package com.example.xxxtwice;
+package com.ruth.stormDemo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.storm.utils.Utils;
@@ -16,11 +16,11 @@ import java.util.Properties;
  */
 @Slf4j
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
-public class XxxtwiceApplication
+public class StormDemoApplication
 {
     private static InetAddress addr;
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(XxxtwiceApplication.class, args);
+        SpringApplication.run(StormDemoApplication.class, args);
         Properties pro = System.getProperties();
         Runtime r = Runtime.getRuntime();
         try {

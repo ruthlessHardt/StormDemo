@@ -1,6 +1,6 @@
-package com.example.xxxtwice.bolts;
+package com.ruth.stormDemo.bolts;
 
-import com.example.xxxtwice.domain.LogDTO;
+import com.ruth.stormDemo.domain.LogDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;

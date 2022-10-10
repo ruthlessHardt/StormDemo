@@ -1,4 +1,4 @@
-package com.example.xxxtwice.domain;
+package com.ruth.stormDemo.domain;
 
 import lombok.Data;
 
