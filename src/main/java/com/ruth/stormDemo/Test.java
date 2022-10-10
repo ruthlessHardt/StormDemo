@@ -2,6 +2,7 @@ package com.ruth.stormDemo;
 
 import com.ruth.stormDemo.bolts.MyBolt;
 import com.ruth.stormDemo.mapper.StoreRedisMapper;
+import com.ruth.stormDemo.policy.KeysCustomGrouping;
 import com.ruth.stormDemo.spouts.MySpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -41,7 +42,11 @@ public class Test {
 
         tb.setSpout("LogDataSpout", new MySpout());
         //Specify the distribution strategy through ShuffleGrouping and specify the distribution strategy. Parallelism 1
-        tb.setBolt("LogDataCountBolt", new MyBolt(),1).shuffleGrouping("LogDataSpout");
+//        tb.setBolt("LogDataCountBolt", new MyBolt(),1).shuffleGrouping("LogDataSpout");
+        //customGrouping
+        tb.setBolt("LogDataCountBolt", new MyBolt(),4)
+                .customGrouping("LogDataSpout",new KeysCustomGrouping()).setNumTasks(4);
+        // TODO 词频统计Bolt
 
         //Save in redis
         JedisPoolConfig poolConfig = new JedisPoolConfig.Builder()
