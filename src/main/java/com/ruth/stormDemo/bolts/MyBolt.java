@@ -89,7 +89,6 @@ public class MyBolt extends BaseRichBolt {
             //Output (purchase time, purchase quantity)
             collector.emit(new Values(purchaseTime,purchaseNumInRedis.toString()));
         }
-
     }
 
     @Override

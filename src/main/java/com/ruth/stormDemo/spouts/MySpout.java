@@ -43,12 +43,13 @@ public class MySpout extends BaseRichSpout {
     public void nextTuple() {
         try {
             while (null != (log = mReader.readLine())) {
-                String[] split = log.split(",");
-                if(split.length > 0 && split[3]!=null && "文具类用品".equals(split[3])){
-                    this.collector.emit(new Values(log));
-//                    Utils.sleep(1000);
-                    System.err.println(" The data written is： ---------> "+ log );
-                }
+                this.collector.emit(new Values(log));
+//                String[] split = log.split(",");
+//                if(split.length > 0 && split[3]!=null && "文具类用品".equals(split[3])){
+//                    this.collector.emit(new Values(log));
+////                    Utils.sleep(1000);
+//                    System.err.println(" The data written is： ---------> "+ log );
+//                }
             }
         } catch (IOException e) {
             e.printStackTrace();
